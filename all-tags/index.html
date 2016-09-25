@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Refatore">
+    <title>all-tags - Refatore</title>
+    <meta name="author" content="Júnior Pires">
+    
+    
+    
+    <meta property="og:type" content="blog">
+<meta property="og:title" content="all-tags">
+<meta property="og:url" content="http://refatore.github.io/all-tags/index.html">
+<meta property="og:site_name" content="Refatore">
+<meta property="og:updated_time" content="2016-09-25T17:48:01.109Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="all-tags">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/assets/images/pires.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-yrst5vo1nxaxbp2g3v9na2wg1lixlpr3ghbjdvskeixmu79deycecx3rh4bt.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-65882577-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Refatore</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Júnior Pires</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/refatore" target="_blank">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                <div id="tags-archives" class="main-content-wrap">
+    <form id="filter-form" action="#">
+        <input name="tag" type="text" class="form-control input--xlarge" placeholder="Search tag" autofocus="autofocus">
+    </form>
+    <h4 class="archive-result text-color-base text-xlarge"
+        data-message-zero="no tag found"
+        data-message-one="1 tag found"
+        data-message-other="{n} tags found"></h4>
+
+        <section>
+        
+            <a class="tag tag--primary tag--small" href="#android-list" data-tag="android">
+                android
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#butterknife-list" data-tag="butterknife">
+                butterknife
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#codigo limpo-list" data-tag="codigo limpo">
+                codigo limpo
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#cor-list" data-tag="cor">
+                cor
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#dica rápida-list" data-tag="dica rápida">
+                dica rápida
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#fastScroll-list" data-tag="fastscroll">
+                fastScroll
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#indice alfabético-list" data-tag="indice alfabético">
+                indice alfabético
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#interface gráfica-list" data-tag="interface gráfica">
+                interface gráfica
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#java-list" data-tag="java">
+                java
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#listView-list" data-tag="listview">
+                listView
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#material design-list" data-tag="material design">
+                material design
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#scroll-list" data-tag="scroll">
+                scroll
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#snackBar-list" data-tag="snackbar">
+                snackBar
+            </a>
+        
+            <a class="tag tag--primary tag--small" href="#transparência-list" data-tag="transparência">
+                transparência
+            </a>
+        
+    </section>
+    <section class="boxes">
+        
+            <div id="android-list" class="archive box" data-tag="android">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/android">
+                        android (3)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                                Barra de rolagem com índice alfabético (ListView Android)
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 15, 2015
+                            </span>
+                        </li>
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                                Butter Knife: desenvolva seus apps Android com menos código
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 03, 2015
+                            </span>
+                        </li>
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/06/Material-Design-SnackBar/">
+                                Material Design: SnackBar
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 06, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="butterknife-list" class="archive box" data-tag="butterknife">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/butterknife">
+                        butterknife (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                                Butter Knife: desenvolva seus apps Android com menos código
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 03, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="codigo limpo-list" class="archive box" data-tag="codigo limpo">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/codigo-limpo">
+                        codigo limpo (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                                Butter Knife: desenvolva seus apps Android com menos código
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 03, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="cor-list" class="archive box" data-tag="cor">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/cor">
+                        cor (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                                Dica rápida: background transparente em Android
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 04, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="dica rápida-list" class="archive box" data-tag="dica rápida">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/dica-rapida">
+                        dica rápida (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                                Dica rápida: background transparente em Android
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 04, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="fastScroll-list" class="archive box" data-tag="fastscroll">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/fastScroll">
+                        fastScroll (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                                Barra de rolagem com índice alfabético (ListView Android)
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 15, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="indice alfabético-list" class="archive box" data-tag="indice alfabético">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/indice-alfabetico">
+                        indice alfabético (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                                Barra de rolagem com índice alfabético (ListView Android)
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 15, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="interface gráfica-list" class="archive box" data-tag="interface gráfica">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/interface-grafica">
+                        interface gráfica (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/06/Material-Design-SnackBar/">
+                                Material Design: SnackBar
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 06, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="java-list" class="archive box" data-tag="java">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/java">
+                        java (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                                Barra de rolagem com índice alfabético (ListView Android)
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 15, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="listView-list" class="archive box" data-tag="listview">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/listView">
+                        listView (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                                Barra de rolagem com índice alfabético (ListView Android)
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 15, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="material design-list" class="archive box" data-tag="material design">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/material-design">
+                        material design (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/06/Material-Design-SnackBar/">
+                                Material Design: SnackBar
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 06, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="scroll-list" class="archive box" data-tag="scroll">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/scroll">
+                        scroll (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                                Barra de rolagem com índice alfabético (ListView Android)
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 15, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="snackBar-list" class="archive box" data-tag="snackbar">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/snackBar">
+                        snackBar (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/06/Material-Design-SnackBar/">
+                                Material Design: SnackBar
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 06, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+            <div id="transparência-list" class="archive box" data-tag="transparência">
+                <h4 class="archive-title">
+                    <a class="link-unstyled" href="/tags/transparencia">
+                        transparência (1)
+                    </a>
+                </h4>
+                <ul class="archive-posts">
+                    
+                        <li class="archive-post">
+                            <a class="archive-post-title" href="/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                                Dica rápida: background transparente em Android
+                            </a>
+                            <span class="archive-post-date">
+                                 - aug 04, 2015
+                            </span>
+                        </li>
+                    
+                </ul>
+            </div>
+        
+    </section>
+</div>
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Júnior Pires. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Júnior Pires</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    autofocus="autofocus"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/butter.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                            <h3 class="media-heading">Butter Knife: desenvolva seus apps Android com menos código</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 3, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Simplifique o seu código, deixe-o mais legível e pare de escrever tanto código repetitivo nas suas aplicações Android. A biblioteca Butter Knife lhe ajuda a fazer essas coisas e um pouco mais.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/skateTumb.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                            <h3 class="media-heading">Dica rápida: background transparente em Android</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 4, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Muitas vezes deseja-se colocar transparência total ou parcial no background de algum elemento Android como: layouts, buttons, textViews, etc. Para se ter um efeito visual interessante, ou resaltar alguma informação em primeiro plano. Fazer isso não é difícil. É o que veremos nessa dica.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/thumb2.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                            <h3 class="media-heading">Material Design: SnackBar</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 6, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>A <code>Support Design Library</code> chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast mas que promete trazer várias vantagens.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/thumbScroll.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                            <h3 class="media-heading">Barra de rolagem com índice alfabético (ListView Android)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 15, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la. Muito prático quando se deseja fornecer navegação rápida entre os itens de uma lista ordenada.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                4 posts found
+            </p>
+        </div>
+    </div>
+</div>
+        
+<div id="cover" style="background-image:url('/assets/images/android.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-rt08quwts7iav5x0cfd2ym0gb5qkd1lvrsmwrakxtkhefmaaes4ywkmnjnwf.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://refatore.github.io/all-tags/index.html';
+                 
+                    this.page.identifier = 'all-tags/index.html';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'refatore';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+
+    </body>
+</html>

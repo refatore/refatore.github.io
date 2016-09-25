@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Refatore">
+    <title>Barra de rolagem com índice alfabético (ListView Android) - Refatore</title>
+    <meta name="author" content="Júnior Pires">
+    
+    
+    
+    <meta name="description" content="Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la.">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Barra de rolagem com índice alfabético (ListView Android)">
+<meta property="og:url" content="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/index.html">
+<meta property="og:site_name" content="Refatore">
+<meta property="og:description" content="Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la.">
+<meta property="og:image" content="http://refatore.github.io/scrollSection.png">
+<meta property="og:updated_time" content="2016-09-25T18:57:56.141Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Barra de rolagem com índice alfabético (ListView Android)">
+<meta name="twitter:description" content="Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la.">
+<meta name="twitter:image" content="http://refatore.github.io/scrollSection.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/assets/images/pires.jpg"/>
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/thumbScroll.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/thumbScroll.png" />
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/cover.jpeg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/cover.jpeg" />
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-yrst5vo1nxaxbp2g3v9na2wg1lixlpr3ghbjdvskeixmu79deycecx3rh4bt.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-65882577-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Refatore</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Júnior Pires</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/refatore" target="_blank">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-left
+                    "
+             style="background-image:url('/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/cover.jpeg');"
+             data-behavior="5">
+            
+                <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Barra de rolagem com índice alfabético (ListView Android)
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2015-08-15T16:28:21-03:00">
+	
+		    Aug 15, 2015
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/android/">android</a>
+
+
+    
+</div>
+
+</div>
+            
+        </div>
+
+            <div id="main" data-behavior="5"
+                 class="hasCover
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la. Muito prático quando se deseja fornecer navegação rápida entre os itens de uma lista ordenada.<br><a id="more"></a><br>A navegação em listas no android pode se tornar muito cansativa quando se tem um número elevado de itens. Quando isso acontece, devemos fornecer alternativas ao usuário para facilitar esse acesso. Seja com filtros, barra de rolagem, carregamento parcial de dados, etc.<br>Caso a lista contenha dados que possam ser agrupados (por ordem alfabética, músicas por artista, etc.), uma boa opção é o uso da barra de rolagem com índices. Ela permite que se navegue rápidamente entre os itens. Abaixo iremos ver como implementar essa funcionalidade. No nosso caso será uma lista de artistas de rock, ordenadas por ordem alfabética.</p>
+<h2 id="Criando-o-Layout"><a href="#Criando-o-Layout" class="headerlink" title="Criando o Layout"></a>Criando o Layout</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></div><div class="line">        <span class="attr">android:fastScrollEnabled</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:fastScrollAlwaysVisible</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/listView"</span>&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">ListView</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>No layout, para que nossa ListView exiba a barra de rolagem, é preciso definir <code>android:fastScrollEnabled=&quot;true&quot;</code> e <code>android:fastScrollAlwaysVisible=&quot;true&quot;</code>.</p>
+<p><code>android:fastScrollEnabled=&quot;true&quot;</code> habilita a exibição da barra de rolagem ao rolar a lista e <code>android:fastScrollAlwaysVisible=&quot;true&quot;</code> faz com que a barra fique sempre visível.</p>
+<h2 id="Criando-o-Adapter"><a href="#Criando-o-Adapter" class="headerlink" title="Criando o Adapter"></a>Criando o Adapter</h2><p>No Adapter é necessário implementar a interface <code>SectionIndexer</code>. Com ela a nossa lista poderá exibir os índices ao rolar:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SectionListAdapter</span> <span class="keyword">extends</span> <span class="title">ArrayAdapter</span>&lt;<span class="title">String</span>&gt; <span class="keyword">implements</span> <span class="title">SectionIndexer</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> HashMap&lt;String,Integer&gt; mapIndex;</div><div class="line">    <span class="keyword">private</span> String[] sections;</div><div class="line">    <span class="keyword">private</span> List&lt;String&gt; list;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SectionListAdapter</span><span class="params">(Context c, List&lt;String&gt; list)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(c,android.R.layout.simple_list_item_1,list);</div><div class="line">        <span class="keyword">this</span>.list = list;</div><div class="line">        <span class="keyword">this</span>.mapIndex = <span class="keyword">new</span> HashMap&lt;String,Integer&gt;();</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.runIndex();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">runIndex</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;list.size();i++)&#123;</div><div class="line">            String item = list.get(i);</div><div class="line">            String key = item.substring(<span class="number">0</span>,<span class="number">1</span>);</div><div class="line">            key = key.toUpperCase();</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(!mapIndex.containsKey(key))&#123;</div><div class="line">                <span class="keyword">this</span>.mapIndex.put(key,i);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            Set&lt;String&gt; sectionLetters = mapIndex.keySet();</div><div class="line"></div><div class="line">            ArrayList&lt;String&gt; sectionList = <span class="keyword">new</span> ArrayList&lt;String&gt;(sectionLetters);</div><div class="line"></div><div class="line">            Collections.sort(sectionList);</div><div class="line"></div><div class="line">            sections = <span class="keyword">new</span> String[sectionList.size()];</div><div class="line"></div><div class="line">            sectionList.toArray(sections);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> Object[] getSections() &#123;</div><div class="line">        <span class="keyword">return</span> sections;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPositionForSection</span><span class="params">(<span class="keyword">int</span> section)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mapIndex.get(sections[section]);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSectionForPosition</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Primeiro precisamos realizar a indexação da nossa lista (método <code>runIndex()</code>). Nesse método, indexamos a primeira ocorrência de cada letra da lista em um HashMap (<code>HashMap&lt;letra,posicao&gt;</code>) e criamos um array com as seções: A,B,C,D,…<br>Logo após implementamos os três métodos da interface: <code>getSections()</code>,<code>getPositionForSection(int section)</code> e <code>getSectionForPosition(int i)</code>.</p>
+<h2 id="Iniciando-a-ListView"><a href="#Iniciando-a-ListView" class="headerlink" title="Iniciando a ListView"></a>Iniciando a ListView</h2><p>Agora iremos inicializar a nossa lista:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] bands=&#123;<span class="string">"AC/DC"</span>,<span class="string">"Adam and the Ants"</span>,<span class="string">"Aerosmith"</span>,<span class="string">"Afrika Bambaataa"</span>,</div><div class="line">            <span class="string">"Al Foster"</span>,<span class="string">"Al Green"</span>,<span class="string">"Alan Parsons"</span>,<span class="string">"Alice Cooper"</span>,<span class="string">"Amy Winehouse"</span>,<span class="string">"Animals"</span>,<span class="string">"Annie Lennox"</span>,</div><div class="line">            <span class="string">"Arctic Monkeys"</span>,<span class="string">"Atmosphere"</span>,<span class="string">"Audioslave"</span>,<span class="string">"Babyshambles"</span>,<span class="string">"Bat For Lashes"</span>,<span class="string">"Bauhaus"</span>,</div><div class="line">            <span class="string">"BB King"</span>,<span class="string">"Beastie Boys"</span>,<span class="string">"Beck"</span>,<span class="string">"Beyonce"</span></div><div class="line">            ,<span class="string">"Biffy Clyro"</span>,<span class="string">"Bob Dylan"</span>,<span class="string">"Bob Marley"</span>,<span class="string">"Boomtown Rats"</span>,<span class="string">"Brian Wilson"</span>,<span class="string">"Bruce Springsteen"</span>,</div><div class="line">            <span class="string">"Chic"</span>,<span class="string">"Chris Isaak"</span>,<span class="string">"Chuck Berry"</span>,<span class="string">"Cliff Richard"</span>,<span class="string">"Cliff Richard and the Shadows"</span>,<span class="string">"Coldplay"</span>,</div><div class="line">            <span class="string">"Cranberries"</span>,<span class="string">"David Bowie"</span>,<span class="string">"Don Williams"</span>,<span class="string">"Dr. Feelgood"</span>,<span class="string">"Duffy"</span>,<span class="string">"Duke Ellington"</span>,<span class="string">"Elton John"</span>,</div><div class="line">            <span class="string">"Elvis Costello"</span>,<span class="string">"Elvis Presley"</span>,<span class="string">"Eric Clapton"</span>,<span class="string">"Florence and the Machine"</span>,<span class="string">"Foo Fighters"</span>,</div><div class="line">            <span class="string">"Frank Sinatra"</span>,<span class="string">"Grace Jones"</span>,<span class="string">"Green Day"</span>,<span class="string">"Guns n Roses"</span>,<span class="string">"Happy Mondays"</span>,<span class="string">"Herbie Hancock"</span>,</div><div class="line">            <span class="string">"Horace Silver"</span>,<span class="string">"Hugh Masekela"</span>,<span class="string">"Humble Pie"</span>,<span class="string">"Ian Brown"</span>,<span class="string">"Ian Dury"</span>,<span class="string">"Ian McCulloch"</span>,<span class="string">"Iggy Pop"</span>,</div><div class="line">            <span class="string">"Jackson Scott"</span>,<span class="string">"James Brown"</span>,<span class="string">"Janis Joplin"</span>,<span class="string">"Jimi Hendrix"</span>,<span class="string">"Jimmy Rushing"</span>,<span class="string">"Joe Strummer"</span>,</div><div class="line">            <span class="string">"John Lennon"</span>,<span class="string">"John Lydon"</span>,<span class="string">"Johnny Borrell"</span>,<span class="string">"Johnny Cash"</span>, <span class="string">"Kaiser Cheifs"</span>,</div><div class="line">            <span class="string">"Kings of Leon"</span>, <span class="string">"Kiss"</span>,<span class="string">"Lady Gaga"</span>,<span class="string">"Led Zeppelin"</span>,<span class="string">"Lee 'Scratch' Perry"</span>,<span class="string">"Lenny Kravitz"</span>,</div><div class="line">            <span class="string">"Libertines"</span>,<span class="string">"Lily Allen"</span>,<span class="string">"Louis Armstrong"</span>,<span class="string">"Madness"</span>,<span class="string">"Madonna"</span>,<span class="string">"Manic Street Preachers"</span>,</div><div class="line">            <span class="string">"Marilyn Manson"</span>,<span class="string">"Marvin Gaye"</span>,<span class="string">"Metallica"</span>,<span class="string">"Michael Jackson"</span>,<span class="string">"Motorhead"</span>,<span class="string">"My Chemical Romance"</span>,</div><div class="line">            <span class="string">"Neil Young"</span>,<span class="string">"Nick Cave"</span>,<span class="string">"Nigel Kennedy"</span>,<span class="string">"Nina Simone"</span>,<span class="string">"Nirvana"</span>,<span class="string">"Noisettes"</span>,<span class="string">"Oasis"</span>,</div><div class="line">            <span class="string">"Offspring"</span>,<span class="string">"Ozzy Osbourne"</span>, <span class="string">"Paul McCartney"</span>,<span class="string">"Paul Simon"</span>,<span class="string">"Paul Weller"</span>,<span class="string">"Pearl Jam"</span>,</div><div class="line">            <span class="string">"Pendulum"</span>,<span class="string">"Performance Boxset"</span>,<span class="string">"Pete Burns"</span>,<span class="string">"Pete Doherty"</span>,<span class="string">"Pete Townshend"</span>,<span class="string">"Peter Gabriel"</span>,</div><div class="line">            <span class="string">"Pink Floyd"</span>,<span class="string">"Prince"</span>,<span class="string">"Queen"</span>,<span class="string">"Radiohead"</span>,<span class="string">"Razorlight"</span>,<span class="string">"Red Hot Chili Peppers"</span>,</div><div class="line">            <span class="string">"REM"</span>,<span class="string">"Richard Ashcroft"</span>,<span class="string">"Scissor Sisters"</span>,<span class="string">"Sex Pistols"</span>,<span class="string">"The Beatles"</span>,<span class="string">"The Cure"</span>,</div><div class="line">            <span class="string">"The Doors"</span>,<span class="string">"The Killers"</span>,<span class="string">"The Pet Shop Boys"</span>,<span class="string">"The Police"</span>,<span class="string">"The Pretenders"</span>,<span class="string">"The Ramones"</span>,</div><div class="line">            <span class="string">"The Revillos"</span>,<span class="string">"The Rolling Stones"</span>,<span class="string">"The Tourists"</span>,<span class="string">"The Undertones"</span>,<span class="string">"The Who"</span>,<span class="string">"Tina Turner"</span>,</div><div class="line">            <span class="string">"Toots and the Maytals"</span>,<span class="string">"Trevor Moss and Hannah Lou"</span>,<span class="string">"TV on the Radio"</span>,<span class="string">"U2"</span>,<span class="string">"Van Morrison"</span>,</div><div class="line">            <span class="string">"Velvet Revolver"</span>,<span class="string">"White Stripes"</span>,<span class="string">"Wishbone Ash"</span>,<span class="string">"Wreckless Eric"</span>,<span class="string">"Wu-Tang Clan"</span>,<span class="string">"Yoko Ono"</span>,</div><div class="line">            <span class="string">"Yumi Matsutoya"</span></div><div class="line"></div><div class="line">    &#125;;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        ListView listViewItems = (ListView) <span class="keyword">this</span>.findViewById(R.id.listView);</div><div class="line"></div><div class="line">        List&lt;String&gt; bandList = Arrays.asList(bands);</div><div class="line">        Collections.sort(bandList);</div><div class="line"></div><div class="line">        listViewItems.setAdapter(<span class="keyword">new</span> SectionListAdapter(<span class="keyword">this</span>,bandList));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Instanciamos o nosso adapter com a lista de nomes e o setamos na ListView. Rodando o projeto, iremos obter o seguinte resultado:</p>
+<p><img src="scrollSection.png" alt="ScrollSection"></p>
+<p>O código completo desse exemplo pode ser encontrado aqui: <a href="https://github.com/refatore/ScrollSection" target="_blank" rel="external">GitHub</a></p>
+<p>Espero que vocês possam utilizar essa funcionalidade nos seus projetos e usufruir dessa facilidade de navegação.<br>E caso surjam dúvidas ou sugestões, é só deixar o seu comentário. ^^<br>Até mais.</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/android/">android</a> <a class="tag tag--primary tag--small t-link" href="/tags/fastScroll/">fastScroll</a> <a class="tag tag--primary tag--small t-link" href="/tags/indice-alfabetico/">indice alfabético</a> <a class="tag tag--primary tag--small t-link" href="/tags/java/">java</a> <a class="tag tag--primary tag--small t-link" href="/tags/listView/">listView</a> <a class="tag tag--primary tag--small t-link" href="/tags/scroll/">scroll</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/06/Material-Design-SnackBar/" data-tooltip="Material Design: SnackBar">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Júnior Pires. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/06/Material-Design-SnackBar/" data-tooltip="Material Design: SnackBar">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Júnior Pires</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    autofocus="autofocus"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/butter.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                            <h3 class="media-heading">Butter Knife: desenvolva seus apps Android com menos código</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 3, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Simplifique o seu código, deixe-o mais legível e pare de escrever tanto código repetitivo nas suas aplicações Android. A biblioteca Butter Knife lhe ajuda a fazer essas coisas e um pouco mais.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/skateTumb.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                            <h3 class="media-heading">Dica rápida: background transparente em Android</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 4, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Muitas vezes deseja-se colocar transparência total ou parcial no background de algum elemento Android como: layouts, buttons, textViews, etc. Para se ter um efeito visual interessante, ou resaltar alguma informação em primeiro plano. Fazer isso não é difícil. É o que veremos nessa dica.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/thumb2.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                            <h3 class="media-heading">Material Design: SnackBar</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 6, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>A <code>Support Design Library</code> chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast mas que promete trazer várias vantagens.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/thumbScroll.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                            <h3 class="media-heading">Barra de rolagem com índice alfabético (ListView Android)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 15, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la. Muito prático quando se deseja fornecer navegação rápida entre os itens de uma lista ordenada.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                4 posts found
+            </p>
+        </div>
+    </div>
+</div>
+        
+<div id="cover" style="background-image:url('/assets/images/android.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-rt08quwts7iav5x0cfd2ym0gb5qkd1lvrsmwrakxtkhefmaaes4ywkmnjnwf.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/';
+                 
+                    this.page.identifier = '2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'refatore';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+
+    </body>
+</html>

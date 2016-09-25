@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Refatore">
+    <title>Material Design: SnackBar - Refatore</title>
+    <meta name="author" content="Júnior Pires">
+    
+    
+    
+    <meta name="description" content="A Support Design Library chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Material Design: SnackBar">
+<meta property="og:url" content="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/index.html">
+<meta property="og:site_name" content="Refatore">
+<meta property="og:description" content="A Support Design Library chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast">
+<meta property="og:image" content="http://refatore.github.io/snack.png">
+<meta property="og:updated_time" content="2016-09-25T17:48:01.105Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Material Design: SnackBar">
+<meta name="twitter:description" content="A Support Design Library chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast">
+<meta name="twitter:image" content="http://refatore.github.io/snack.png">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/assets/images/pires.jpg"/>
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/thumb2.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/thumb2.png" />
+    
+    
+        <meta property="og:image" content="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/materialdesign.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/materialdesign.png" />
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-yrst5vo1nxaxbp2g3v9na2wg1lixlpr3ghbjdvskeixmu79deycecx3rh4bt.min.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-65882577-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Refatore</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Júnior Pires</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/refatore" target="_blank">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+        <div class="post-header-cover
+                    text-left
+                    "
+             style="background-image:url('/2015/08/06/Material-Design-SnackBar/materialdesign.png');"
+             data-behavior="5">
+            
+                <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            Material Design: SnackBar
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2015-08-06T22:53:28-03:00">
+	
+		    Aug 06, 2015
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/android/">android</a>
+
+
+    
+</div>
+
+</div>
+            
+        </div>
+
+            <div id="main" data-behavior="5"
+                 class="hasCover
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>A <code>Support Design Library</code> chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast mas que promete trazer várias vantagens.<br><a id="more"></a></p>
+<p>A <a href="http://android-developers.blogspot.co.uk/2015/05/android-design-support-library.html" target="_blank" rel="external">Support Design Library</a> é uma biblioteca do Android que foi lançada recentemente. Ela é composta por diversos componentes gráficos do <a href="https://www.google.com/design/spec/material-design/introduction.html#" target="_blank" rel="external">Material Design</a> que ainda não tinham sido implementados oficialmente. A SnackBar é um deles.</p>
+<h2 id="Conhecendo-o-componente"><a href="#Conhecendo-o-componente" class="headerlink" title="Conhecendo o componente"></a>Conhecendo o componente</h2><p>A SnackBar é uma barra informativa que é exibida na parte inferior da tela. É bem semelhante ao velho e conhecido Toast, mas possui algumas vantagens em relação a ele:</p>
+<ul>
+<li><p>É possível exibir ao lado da mensagem um botão de ação. Bastante útil quando se deseja fornecer ao usuário opção de interação (“Tentar novamente”,”Desfazer”,”Reconectar”, etc.);</p>
+</li>
+<li><p>Como ela é inserida no layout da página, pode-se, ao deslizar o dedo em cima dela, sumir com a barra antes mesmo que seu tempo de exibição acabe;</p>
+<p>Abaixo segue um video demonstrativo desse componente:</p>
+</li>
+</ul>
+<center><br><video width="420" height="340" controls><br>    <source type="video/mp4" src="snack_video.webm"><br></video><br></center>
+
+<h3 id="Implementando"><a href="#Implementando" class="headerlink" title="Implementando"></a>Implementando</h3><p>Primeiramente, para que se possa utilizar a SnackBar é necessário inserir a seguinte dependência no seu build.gradle:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile 'com.android.support:design:22.2.1'</div></pre></td></tr></table></figure>
+<p>Feito isso, vamos à implementação, que é muito simples (Lembra a do Toast):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Snackbar.make(snackBarPositionLayout,<span class="string">"Seu texto aqui!"</span>,Snackbar.LENGTH_LONG).setAction(</div><div class="line">                <span class="string">"Desfazer"</span>, <span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">        ).show();</div></pre></td></tr></table></figure>
+<p>Resultado: </p>
+<p><img src="snack.png" alt="SnackBar"></p>
+<p>O primeiro parâmetro é uma View onde a snackbar vai ser exibida (ela é posicionada na parte inferior dessa View). O segundo é o texto a ser exibido, seguido no terceiro parâmetro do tempo de exibição.<br>O <code>setAction()</code> define a ação a ser realizada, tendo como parâmetros o nome da ação (que será exibida ao lado do texto) e o evento de click que irá disprar a ação. Lembrando que o método <code>setAction()</code> é opcional.<br>Por fim tem-se o método <code>show()</code> para que o componente seja exibido (nunca esqueça desse método).</p>
+<p>Com essas poucas linhas de código é possivel utilizar esse novo componente Android e usufruir de suas vantagens. Eu particularmente já estou trocando os meus velhos Toasts por ele.</p>
+<h3 id="Tablets"><a href="#Tablets" class="headerlink" title="Tablets"></a>Tablets</h3><p>Para que a snackBar seja exibida corretamente em Tablets, é necessário que a sua View de referência (primeiro parâmetro do método <code>make()</code>) seja um CoordinatorLayout. Mais detalhes sobre esse Layout será visto em outra postagem.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/snackbarPosition"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>E com isso finalizamos os conceitos básicos da utilização da SnackBar.</p>
+<p>Um exemplo de código pode ser encontrado aqui: <a href="https://github.com/refatore/SampleSnackBar" target="_blank" rel="external">GitHub</a><br>Deixo também o link para as recomendações da Google sobre o uso desse componente: <a href="https://www.google.com/design/spec/components/snackbars-toasts.html#snackbars-toasts-usage" target="_blank" rel="external">Material Design</a></p>
+<p>E caso surjam dúvidas ou sugestões, é só deixar o seu comentário. ^^<br>Até mais.</p>
+<p>Referências: <a href="http://android-developers.blogspot.co.uk/2015/05/android-design-support-library.html" target="_blank" rel="external">Android Developers Blog</a>,<a href="http://inthecheesefactory.com/blog/android-design-support-library-codelab/en" target="_blank" rel="external">Inthecheesefactor</a>,<a href="https://androidbycode.wordpress.com/2015/06/06/material-design-snackbar-using-the-design-support-library/" target="_blank" rel="external">Androidbycode</a></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/android/">android</a> <a class="tag tag--primary tag--small t-link" href="/tags/interface-grafica/">interface gráfica</a> <a class="tag tag--primary tag--small t-link" href="/tags/material-design/">material design</a> <a class="tag tag--primary tag--small t-link" href="/tags/snackBar/">snackBar</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/"  data-tooltip="Barra de rolagem com índice alfabético (ListView Android)">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/04/Dica-rapida-background-transparente-em-Android/" data-tooltip="Dica rápida: background transparente em Android">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 Júnior Pires. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/"  data-tooltip="Barra de rolagem com índice alfabético (ListView Android)">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/08/04/Dica-rapida-background-transparente-em-Android/" data-tooltip="Dica rápida: background transparente em Android">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/pires.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">Júnior Pires</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    autofocus="autofocus"/>
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/butter.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/03/Butter-Knife-desenvolva-seus-apps-Android-com-menos-codigo/">
+                            <h3 class="media-heading">Butter Knife: desenvolva seus apps Android com menos código</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 3, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Simplifique o seu código, deixe-o mais legível e pare de escrever tanto código repetitivo nas suas aplicações Android. A biblioteca Butter Knife lhe ajuda a fazer essas coisas e um pouco mais.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/skateTumb.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/04/Dica-rapida-background-transparente-em-Android/">
+                            <h3 class="media-heading">Dica rápida: background transparente em Android</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 4, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Muitas vezes deseja-se colocar transparência total ou parcial no background de algum elemento Android como: layouts, buttons, textViews, etc. Para se ter um efeito visual interessante, ou resaltar alguma informação em primeiro plano. Fazer isso não é difícil. É o que veremos nessa dica.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/thumb2.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/06/Material-Design-SnackBar/">
+                            <h3 class="media-heading">Material Design: SnackBar</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 6, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>A <code>Support Design Library</code> chegou a pouco tempo, trazendo diversos componentes do Material Design que até então não possuiam implementação oficial. Dentre eles a SnackBar, componente semelhante ao Toast mas que promete trazer várias vantagens.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                            <img class="media-image" src="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/thumbScroll.png" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://refatore.github.io/2015/08/15/Barra-de-rolagem-com-indice-alfabetico-ListView-Android/">
+                            <h3 class="media-heading">Barra de rolagem com índice alfabético (ListView Android)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Aug 15, 2015
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Sabe aquela funcionalidade da agenda de contatos do Android, onde quando se movimenta a barra de rolagem é exibida a primeira letra dos contatos atuais? Isso mesmo. Iremos aprender como implementá-la. Muito prático quando se deseja fornecer navegação rápida entre os itens de uma lista ordenada.<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                4 posts found
+            </p>
+        </div>
+    </div>
+</div>
+        
+<div id="cover" style="background-image:url('/assets/images/android.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-rt08quwts7iav5x0cfd2ym0gb5qkd1lvrsmwrakxtkhefmaaes4ywkmnjnwf.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://refatore.github.io/2015/08/06/Material-Design-SnackBar/';
+                 
+                    this.page.identifier = '2015/08/06/Material-Design-SnackBar/';
+                 
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'refatore';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+
+    </body>
+</html>
